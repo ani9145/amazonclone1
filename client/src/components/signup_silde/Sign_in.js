@@ -14,7 +14,6 @@ const Sign_in = () => {
 
 const adddata = (e) => {
   const { name, value } = e.target;
-  // console.log(name, value);
 
   setData((pre) => {
       return {

@@ -1,8 +1,8 @@
 import { Divider } from '@mui/material';
 import React from 'react'
-import Carousel from "react-multi-carousel";
+import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css";
-// import { products } from './productdata';
+import { products } from './productdata';
 import { NavLink } from "react-router-dom";
 import "./slide.css"
 
@@ -33,19 +33,21 @@ const Slideshow = ({title,products}) => {
                 <button className="view_btn">View All</button>
          </div>
          <Divider />
-      <Carousel responsive={responsive}
+      <Carousel 
+      responsive={responsive}
       infinite={true}
-      deviceType={false}
+      draggable={false}
       swipeable={true}
       centerMode={true}
       autoPlay={true}
       autoPlaySpeed={4000}
       keyBoardControl={true}
       showDots={false}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
+      removeArrowOnDeviceType={["tablet","mobile"]}
       dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-      containerClass="carousel-container"
+      itemAriaLabel='carousel-item-padding-40-px'
+      containerClass='carousel-container'
+
       >
  {
    products.map((e)=>{
