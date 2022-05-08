@@ -8,7 +8,6 @@ const Products =require("./models/productsSchema");
 const DefaultData = require("./defaultdata")
 const cors = require("cors")
 const router=require("./routes/router")
-const jwt = require("jsonwebtoken");
 
 
 app.use(express.json());

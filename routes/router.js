@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const products = require("../models/productsSchema");
+const Products = require("../models/productsSchema");
 const User = require("../models/userSchma")
 const bcrypt = require("bcryptjs");
 const authenicate = require("../middleware/authenticate");
@@ -9,7 +9,7 @@ const authenicate = require("../middleware/authenticate");
 
 router.get("/getproducts", async (req, res) => {
     try {
-        const producstdata = await products.find();
+        const producstdata = await Products.find();
         console.log(producstdata + "data mila hain");
         res.status(201).json(producstdata);
     } catch (error) {
@@ -104,17 +104,17 @@ router.post("/login", async (req, res) => {
 // getindividual
 
 router.get("/getproductsone/:id", async (req, res) => {
-
     try {
-        const { id } = req.params;
-        console.log(id);
+        const { id } = req.params;  
 
-        const individual = await products.findOne({ id: id });
-        console.log(individual + "ind mila hai");
+        const individuadata = await Products.findOne({ id: id });
 
-        res.status(201).json(individual);
+
+        res.status(201).json(individuadata);
+
     } catch (error) {
-        res.status(400).json(error);
+        res.status(400).json(individuadata);
+        console.log("error" + error.message);
     }
 });
 
@@ -125,7 +125,7 @@ router.post("/addcart/:id", authenicate, async (req, res) => {
     try {
         console.log("perfect 6");
         const { id } = req.params;
-        const cart = await products.findOne({ id: id });
+        const cart = await Products.findOne({ id: id });
         console.log(cart + "cart milta hain");
 
         const Usercontact = await User.findOne({ _id: req.userID });
